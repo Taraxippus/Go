@@ -5,9 +5,9 @@ android {
     buildToolsVersion "21.1.0"
 
     defaultConfig {
-        applicationId "com.taraxippus.yume"
+        applicationId "com.taraxippus.go"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
@@ -20,6 +20,5 @@ android {
 }
 
 dependencies {
-	compile 'com.android.support:support-v4:+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }

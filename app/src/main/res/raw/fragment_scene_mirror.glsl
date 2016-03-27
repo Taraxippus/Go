@@ -7,6 +7,9 @@ uniform vec3 u_Eye;
 uniform vec3 u_Light;
 uniform vec3 u_Light2;
 
+uniform sampler2D u_Texture;
+uniform vec2 u_InvResolution;
+
 varying vec3 v_Normal;
 varying vec3 v_Position;
 
@@ -26,5 +29,8 @@ void main()
 		spec = clamp(pow(dot(normalize(-reflect(normal, light)), normalize(u_Eye - v_Position)), u_Specularity.x), 0.0, 1.0);
 	
 	gl_FragColor = vec4(u_Color.rgb * (c_Ambient + (diff + diff2 * 0.5) / 1.5 * (1.0 - c_Ambient) + spec * u_Specularity.y), u_Color.a);
+	
+	vec4 reflection = texture2D(u_Texture, gl_FragCoord.xy * u_InvResolution);
+	gl_FragColor = vec4(reflection.rgb, 0.0) + gl_FragColor;
 }
 

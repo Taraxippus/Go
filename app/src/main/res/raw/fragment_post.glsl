@@ -46,7 +46,7 @@ void main()
     dir = min(vec2(FXAA_SPAN_MAX,  FXAA_SPAN_MAX),
             max(vec2(-FXAA_SPAN_MAX, -FXAA_SPAN_MAX), dir * rcpDirMin)) * u_InvResolution;
 
-    vec3 rgbA = (1. / 2.0) * (
+    vec3 rgbA = (1.0 / 2.0) * (
               texture2D(u_Texture, v_UV.xy + dir * (1.0 / 3.0 - 0.5)).xyz +
               texture2D(u_Texture, v_UV.xy + dir * (2.0 / 3.0 - 0.5)).xyz);
 
